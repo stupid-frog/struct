@@ -12,6 +12,8 @@ config.exportSceneToJson = true;
 
 //游戏头路径
 config.headUrl = '';
+//屏幕方向
+config.screenMode = "none";
 
 //音频路径，相对于html的路径地址
 config.soundUrl = 'sound/';

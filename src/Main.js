@@ -4,8 +4,6 @@ import version from "./core/Version";
 import sound from "./core/Sound";
 import BaseClass from "./core/BaseScene";
 
-import GameConfig from "./GameConfig";
-
 class Main {
     constructor() {
         //引擎初始化等;
@@ -14,7 +12,7 @@ class Main {
 
     //初始化完成
     inited() {
-        log('complete！')
+        log('complete！');
     }
 }
 

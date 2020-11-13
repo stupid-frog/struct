@@ -139,9 +139,8 @@ export default window.frameCore = (function(exports) {
         Laya.AtlasInfoManager.enable("fileconfig.json" + '?v=1', Laya.Handler.create(this, function() {
             //加载初始化
             exports.load.init(function() {
-                try {
-                    callBack();
-                } catch (e) { console.error('初始化引擎后没有回调函数！！！'); }
+                if (!callBack) console.error('初始化引擎后没有回调函数！！！');
+                else callBack();
             });
         }));
         // }), Laya.ResourceVersion.FILENAME_VERSION);

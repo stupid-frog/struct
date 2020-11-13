@@ -37,17 +37,17 @@ export default window.BaseClass = function(exports) {
         scaleAni() {
             //缩放动画
             this.owner.pivot(this.owner.width / 2, this.owner.height / 2);
-            this.owner.x += this.owner.width / 2;
-            this.owner.y += this.owner.height / 2;
+            this.owner.x += this.owner.width * this.owner.scaleX / 2;
+            this.owner.y += this.owner.height * this.owner.scaleY / 2;
             this.owner.scale(0, 0);
-            this.aniTween = Laya.Tween.to(this.owner, { scaleX: 1, scaleY: 1 }, 200, Laya.Ease.backOut);
+            this.aniTween = Laya.Tween.to(this.owner, { scaleX: this.owner.params.scaleX, scaleY: this.owner.params.scaleY }, 200, Laya.Ease.backOut);
         }
 
         onDisable() {
             //清理一下
             this.owner.pivot(0, 0);
             this.owner.x = this.owner.y = 0;
-            this.owner.scale(1, 1);
+            this.owner.scale(this.owner.params.scaleX, this.owner.params.scaleY);
             Laya.Tween.clear(this.aniTween);
         }
     }
